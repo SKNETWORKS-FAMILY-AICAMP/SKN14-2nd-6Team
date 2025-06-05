@@ -224,7 +224,7 @@ SKN14-2nd-6Team
 # 6. Streamlit 구현
 
 ## 6-1. Streamlit 영상
-### [시연 영상 youtube 링크](https://youtu.be/9g6i4hS7760)
+### [시연 영상 youtube 링크](https://youtu.be/GbB35BIXfgk)
 
 ## 6-2. Streamlit 화면
 
