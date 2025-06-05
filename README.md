@@ -238,7 +238,7 @@ SKN14-2nd-6Team
 
 <table border="1" style="border-collapse: collapse; text-align: center; width: 100%;">
   <tr>
-    <th style="padding: 10px; width: 100px;">이름</th>
+    <th style="padding: 40px; width: 200px;">이름</th>
     <th>한 줄 회고</th>
   </tr>
   <tr>
