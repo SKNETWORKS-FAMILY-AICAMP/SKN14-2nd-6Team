@@ -55,7 +55,7 @@
 | 머신러닝 및 모델링       | 김의령, 김재우, 안윤지, 이승혁, 조성렬                      | 코드               |
 | 머신러닝 코드 취합       | 조성렬                     | 코드               |
 | Streamlit 구현     | 김의령, 김재우, 안윤지           | Streamlit 화면     |
-| README.md 작성     | 조성렬                     | GitHub README.md |
+| README.md 작성     | 조성렬                     | GitHub README|
 | PPT 제작 및 발표      | 이승혁                     | html,Canva       |
 | 최종 점검 및 회고       | 김의령, 김재우, 안윤지, 이승혁, 조성렬 | -                |
 
