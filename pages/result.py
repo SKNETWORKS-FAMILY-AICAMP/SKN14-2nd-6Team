@@ -397,49 +397,13 @@ if df is None:
     st.error("데이터셋 파일을 찾을 수 없습니다.")
     st.stop()
 
-# Course 값 전처리 및 필터링
-if 'Course' in df.columns:
-    # Course 컬럼을 숫자형으로 변환
-    df['Course'] = pd.to_numeric(df['Course'], errors='coerce')
-    student_course = form_original_labels['Course']
-    # 입력값이 전공명일 경우 숫자로 변환
-    if not str(student_course).isdigit():
-        student_course_num = mappings.course_map_reverse.get(student_course)
-    else:
-        student_course_num = int(student_course)
-    df_filtered = df[df['Course'] == student_course_num]
-else:
-    df_filtered = df
-
-
-import numpy as np
-def safe_value(val):
-    return 0 if val is None or (isinstance(val, float) and np.isnan(val)) else val
-
-student_grade_1st = safe_value(form_original_labels["Curricular units 1st sem (grade)"])
-student_grade_2nd = safe_value(form_original_labels["Curricular units 2nd sem (grade)"])
-class_max_1st = safe_value(df_filtered['Curricular units 1st sem (grade)'].max())
-class_max_2nd = safe_value(df_filtered['Curricular units 2nd sem (grade)'].max())
-class_min_1st = safe_value(df_filtered['Curricular units 1st sem (grade)'].dropna().min())
-class_min_2nd = safe_value(df_filtered['Curricular units 2nd sem (grade)'].dropna().min())
-class_avg_1st = safe_value(df_filtered['Curricular units 1st sem (grade)'].mean())
-class_avg_2nd = safe_value(df_filtered['Curricular units 2nd sem (grade)'].mean())
-
-
-# 필터링 후 데이터 개수 확인 및 안내
-if df_filtered.empty:
-    st.warning(f"해당 전공({student_course}) 학생 데이터가 없습니다.")
-    st.stop()
-elif len(df_filtered) == 1:
-    st.info(f"해당 전공({student_course}) 학생이 1명뿐입니다. 통계가 의미 없을 수 있습니다.")
-
 # 1, 2학기 성적 컬럼명
 col_grade_1st = 'Curricular units 1st sem (grade)'
 col_grade_2nd = 'Curricular units 2nd sem (grade)'
 
 # 결측치 제거 및 0점 제외
-grades_1st = df_filtered[col_grade_1st].dropna()
-grades_2nd = df_filtered[col_grade_2nd].dropna()
+grades_1st = df[col_grade_1st].dropna()
+grades_2nd = df[col_grade_2nd].dropna()
 grades_1st_nozero = grades_1st[grades_1st > 0]
 grades_2nd_nozero = grades_2nd[grades_2nd > 0]
 
